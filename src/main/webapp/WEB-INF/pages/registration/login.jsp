@@ -18,20 +18,28 @@
 
 <body>
 
-<h1>LOGIN</h1>
+<h1>LOGIN PAGE</h1>
 
 <form method="POST"
       action="${pageContext.request.contextPath}/login">
 
-    <span>${message}</span>
-    <input name="username" type="text" class="form-control" placeholder="Username"
-           autofocus="true"/>
+    <span class="fontawesome-user"></span>
+    <input name="username" type="text" class="form-control" placeholder="Username"/>
+
+    <span class="fontawesome-lock"></span>
     <input name="password" type="password" class="form-control" placeholder="Password"/>
-    <span>${error}</span>
+
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
     <input type="submit" value="Login">
 </form>
+
+<a href="${pageContext.request.contextPath}/registration">
+    <form method="GET"
+          action="${pageContext.request.contextPath}/registration">
+        <input type="submit" value=" Go to registration ">
+    </form>
+</a>
 
 </body>
 

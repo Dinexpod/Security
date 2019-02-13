@@ -28,19 +28,12 @@
     </form>
 </a>
 
-<a href="${pageContext.request.contextPath}/registration">
+<a href="${pageContext.request.contextPath}/developer">
     <form method="GET"
-          action="${pageContext.request.contextPath}/registration">
-        <input type="submit" value=" Registration ">
+          action="${pageContext.request.contextPath}/developer">
+        <input type="submit" value=" Developer page ">
     </form>
 </a>
-
-<%--<a href="${pageContext.request.contextPath}/developer">--%>
-    <%--<form method="GET"--%>
-          <%--action="${pageContext.request.contextPath}/developer">--%>
-        <%--<input type="submit" value=" Developer page ">--%>
-    <%--</form>--%>
-<%--</a>--%>
 
 </body>
 
