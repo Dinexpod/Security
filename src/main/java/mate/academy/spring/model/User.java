@@ -1,6 +1,7 @@
 package mate.academy.spring.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Builder
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,10 +22,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(unique = true)
-    private String login;
-
+    private String name;
+    private String lastName;
     private String username;
     private String password;
     private String email;

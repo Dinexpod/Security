@@ -1,5 +1,6 @@
 package mate.academy.spring.service.impl;
 
+import mate.academy.spring.dto.UserRegistrationInput;
 import mate.academy.spring.model.User;
 import mate.academy.spring.repository.UserRepository;
 import mate.academy.spring.service.UserService;
@@ -19,5 +20,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public void add(UserRegistrationInput userRegistrationInput) {
+        userRepository.save(userRegistrationInput.toUser());
     }
 }
