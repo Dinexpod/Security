@@ -8,6 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -83,5 +85,21 @@ public class DataConfig {
         properties.put(PROP_HIBERNATE_HBM2DDL_AUTO, env.getRequiredProperty(PROP_HIBERNATE_HBM2DDL_AUTO));
 
         return properties;
+    }
+
+    @Bean
+    public JavaMailSender mailSender() {
+        JavaMailSenderImpl ms = new JavaMailSenderImpl();
+        ms.setHost("smtp.gmail.com");
+        ms.setPort(587);
+
+        ms.setUsername("*****@gmail.com");
+        ms.setPassword("*****");
+        Properties props = ms.getJavaMailProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.debug", "true");
+        return ms;
     }
 }
