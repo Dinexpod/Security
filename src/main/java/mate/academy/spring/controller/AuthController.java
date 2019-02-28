@@ -5,7 +5,9 @@ import mate.academy.spring.service.MailService;
 import mate.academy.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.validation.Validator;
 
 @Controller
@@ -59,7 +62,12 @@ public class AuthController {
 //    }
 
     @GetMapping(value = "/login")
-    public String login() {
+    public String login(final Authentication authentication, final ModelMap map,
+                        final HttpServletRequest request) {
+        if (authentication != null) {
+            return "redirect:/";
+        }
+
         return "registration/login";
     }
 

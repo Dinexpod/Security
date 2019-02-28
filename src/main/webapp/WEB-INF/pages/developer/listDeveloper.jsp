@@ -12,7 +12,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" media="screen"
-          href="${pageContext.request.contextPath}/resources/styles/style.css"/>
+          href="${pageContext.request.contextPath}/resources/styles/tableStyle.css"/>
     <title>developer</title>
 </head>
 <body>

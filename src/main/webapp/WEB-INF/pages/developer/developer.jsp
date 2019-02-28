@@ -10,7 +10,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" media="screen"
-          href="${pageContext.request.contextPath}/resources/styles/style1.css"/>
+          href="${pageContext.request.contextPath}/resources/styles/loginStyle.css"/>
     <title>Developer</title>
 </head>
 <button type="button" name="back" onclick="history.back()">back</button>
@@ -31,19 +31,10 @@
             </form>
         </a>
 
-    <a href="${pageContext.request.contextPath}/developer/newDev/">
-        <form method="GET"
-              action="${pageContext.request.contextPath}/developer/newDev">
+
+        <form method="GET" action="${pageContext.request.contextPath}/developer/newDev">
             <input type="submit" value="Create developer">
         </form>
-    </a>
-
-    <a href="${pageContext.request.contextPath}/developer/jqueryDev/">
-        <form method="GET"
-              action="${pageContext.request.contextPath}/developer/jqueryDev">
-            <input type="submit" value="JqueryDev">
-        </form>
-    </a>
 
     </body>
 </div>
