@@ -10,7 +10,7 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" media="screen"
-          href="${pageContext.request.contextPath}/resources/styles/style1.css"/>
+          href="${pageContext.request.contextPath}/resources/styles/loginStyle.css"/>
     <title>CreateDeveloper</title>
 </head>
 <button type="button" name="back" onclick="history.back()">back</button>
