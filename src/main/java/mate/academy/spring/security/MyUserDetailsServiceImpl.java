@@ -25,9 +25,9 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("____________________________---------------------_____________--------");
         mate.academy.spring.model.User user = userService.findByUsername(username);
         Set<GrantedAuthority> authoritySet = new HashSet<>();
+        System.out.println("We AUTHORIZED!!!");
         return new org.springframework.security.core.
                 userdetails.User(user.getUsername(), user.getPassword(), authoritySet);
     }
