@@ -1,6 +1,6 @@
 package mate.academy.spring.service.impl;
 
-import mate.academy.spring.model.User;
+import mate.academy.spring.model.user.User;
 import mate.academy.spring.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

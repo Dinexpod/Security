@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.validation.Validator;
 
@@ -40,10 +41,9 @@ public class AuthController {
 
     @PostMapping(value = "/registration")
     public String registrationPost(UserRegistrationInput userRI) {
-        System.out.println(userRI.toString());
         userService.add(userRI);
 
-        mailService.notify(userRI.toUser());
+//        mailService.notify(userRI.toUser());
 
         return "registration/login";
     }
@@ -69,6 +69,13 @@ public class AuthController {
         }
 
         return "registration/login";
+    }
+
+    @PostMapping(value = "/logout")
+    public String login(final HttpServletRequest request) throws ServletException {
+        request.logout();
+
+        return "redirect:/login";
     }
 
     @GetMapping(value = "/activation/{token}")

@@ -1,9 +1,12 @@
 package mate.academy.spring.security;
 
 import lombok.extern.log4j.Log4j2;
+import mate.academy.spring.model.user.User;
+import mate.academy.spring.repository.UserRepository;
 import mate.academy.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,19 +19,19 @@ import java.util.Set;
 @Component
 public class MyUserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserService userService;
-
     @Autowired
-    public MyUserDetailsServiceImpl(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        mate.academy.spring.model.User user = userService.findByUsername(username);
+        System.out.println("start authorization!");
+        User user = userService.findByUsername(username);
+        if(user == null) throw new UsernameNotFoundException("User not found!");
+
         Set<GrantedAuthority> authoritySet = new HashSet<>();
-        System.out.println("We AUTHORIZED!!!");
-        return new org.springframework.security.core.
-                userdetails.User(user.getUsername(), user.getPassword(), authoritySet);
+        GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().name());
+        authoritySet.add(authority);
+        return new org.springframework.security.core.userdetails
+                .User(user.getUsername(), user.getPassword(), authoritySet);
     }
 }
