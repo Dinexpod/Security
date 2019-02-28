@@ -3,7 +3,7 @@ package mate.academy.spring.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import mate.academy.spring.model.User;
+import mate.academy.spring.model.user.User;
 
 @Data
 @NoArgsConstructor

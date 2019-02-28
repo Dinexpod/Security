@@ -20,6 +20,13 @@
     <h1> You are located on main page WebSite! </h1>
 
 <body>
+<a href="${pageContext.request.contextPath}/logout">
+    <form method="POST"
+          action="${pageContext.request.contextPath}/logout">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <input type="submit" value=" logout ">
+    </form>
+</a>
 
 <a href="${pageContext.request.contextPath}/login">
     <form method="GET"

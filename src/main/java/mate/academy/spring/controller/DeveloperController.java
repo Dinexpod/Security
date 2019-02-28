@@ -5,6 +5,7 @@ import mate.academy.spring.dto.DeveloperDto;
 import mate.academy.spring.model.Developer;
 import mate.academy.spring.service.DeveloperService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,17 +28,17 @@ public class DeveloperController {
         this.developerService = developerService;
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index() {
-        log.info("controller: DEVELOPER INDEX");
-        return "/index";
-    }
-
     @RequestMapping(method = RequestMethod.GET)
     public String developer() {
         log.info("controller: DEVELOPER");
         return "developer/developer";
     }
+
+//    @RequestMapping(value = "/index", method = RequestMethod.GET)
+//    public String index() {
+//        log.info("controller: DEVELOPER INDEX");
+//        return "/index";
+//    }
 
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public String developerInfo() {
@@ -69,14 +70,16 @@ public class DeveloperController {
     @RequestMapping(value = "/addDev", method = RequestMethod.POST)
     public String putDeveloper(DeveloperDto devDto, ModelMap model) {
         log.info("controller: DEVELOPER addDev");
+
         Developer dev = new Developer();
 
         dev.setDeveloperAge(devDto.getDeveloperAge());
         dev.setDeveloperSalary(devDto.getDeveloperSalary());
         dev.setDeveloperName(devDto.getDeveloperName());
 
-        DeveloperDto developerDto = developerService
-                .getDeveloper(developerService.create(dev).getDeveloperId());
+        Developer developer = developerService.create(dev);
+        Long id = developer.getDeveloperId();
+        DeveloperDto developerDto = developerService.getDeveloper(id);
 
         model.put("developer", developerDto);
         return "developer/showDev";
@@ -84,18 +87,13 @@ public class DeveloperController {
 
     @RequestMapping(value = "/listDev", method = RequestMethod.GET)
     public String listDeveloper(ModelMap model) {
+
         log.info("controller: DEVELOPER LIST");
 
         List<DeveloperDto> developers = developerService.getAll();
 
         model.put("developers", developers);
         return "developer/listDeveloper";
-    }
-
-    @RequestMapping(value = "/jqueryDev", method = RequestMethod.GET)
-    public String jQueryDev() {
-        log.info("controller: DEVELOPER jqueryDev");
-        return "developer/jqueryDev";
     }
 
     @PostConstruct

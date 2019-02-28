@@ -1,6 +1,6 @@
 package mate.academy.spring.repository;
 
-import mate.academy.spring.model.User;
+import mate.academy.spring.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
