@@ -34,12 +34,6 @@ public class DeveloperController {
         return "developer/developer";
     }
 
-//    @RequestMapping(value = "/index", method = RequestMethod.GET)
-//    public String index() {
-//        log.info("controller: DEVELOPER INDEX");
-//        return "/index";
-//    }
-
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public String developerInfo() {
         log.info("controller: DEVELOPER INFO");

@@ -1,9 +1,8 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Dinexpod
-  Date: 30.01.2019
-  Time: 17:32
+  Date: 28.02.2019
+  Time: 15:58
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +11,7 @@
     <link type="text/css" rel="stylesheet" media="screen"
           href="${pageContext.request.contextPath}/resources/styles/loginStyle.css"/>
 
-    <title>CreateDeveloper</title>
+    <title>createProject</title>
 </head>
 
 <button type="button" name="back" onclick="history.back()">back</button>
@@ -21,22 +20,24 @@
 
 <body>
 <h1>
-    Enter Developer's details
+    Enter Project's details
 </h1>
+
 <form method="POST"
-      action="${pageContext.request.contextPath}/developer/addDev" modelattribute="developer">
+      action="${pageContext.request.contextPath}/project/addProject" modelattribute="developer">
 
     <span class="fontawesome-user"></span>
-    <input  name="developerName" type="text" id="developerName" placeholder="developerName">
+    <input  name="projectCost" type="text" id="projectCost" placeholder="projectCost">
 
     <span class="fontawesome-user"></span>
-    <input  name="developerAge" type="text" id="developerAge" placeholder="developerAge">
+    <input  name="projectName" type="text" id="projectName" placeholder="projectName">
 
     <span class="fontawesome-user"></span>
-    <input  name="developerSalary" type="text" id="developerSalary" placeholder="developerSalary">
+    <input  name="projectType" type="text" id="projectType" placeholder="projectType">
 
     <input type="submit" value="Submit"/>
-    </form>
+</form>
+
 </body>
-    </div>
+</div>
 </html>

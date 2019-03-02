@@ -11,11 +11,11 @@
 <head>
     <title>ShowDev</title>
 </head>
+
+<button type="button" name="back" onclick="history.back()">back</button>
+
 <body>
 <h1>
-
-    <button type="button" name="back" onclick="history.back()">back</button>
-
     Developer submit!
 </h1>
 <h2>

@@ -51,7 +51,6 @@ public class AuthController {
 //    @PostMapping(value = "/registration")
 //    @ResponseBody
 //    public HttpStatus registrationJson(@RequestBody UserRegistrationInput user) {
-////        System.out.println("POOOOOOOOOOOOOOOOOOST");
 ////        userService.add(userRI);
 //        return HttpStatus.OK;
 //    }

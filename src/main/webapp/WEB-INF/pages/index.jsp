@@ -21,16 +21,13 @@
 
 <body>
 <a href="${pageContext.request.contextPath}/logout">
-    <form method="POST"
-          action="${pageContext.request.contextPath}/logout">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <form method="POST" action="${pageContext.request.contextPath}/logout">
         <input type="submit" value=" logout ">
     </form>
 </a>
 
 <a href="${pageContext.request.contextPath}/login">
-    <form method="GET"
-          action="${pageContext.request.contextPath}/login">
+    <form method="GET" action="${pageContext.request.contextPath}/login">
         <input type="submit" value=" Login ">
     </form>
 </a>
@@ -39,6 +36,13 @@
     <form method="GET"
           action="${pageContext.request.contextPath}/developer">
         <input type="submit" value=" Developer page ">
+    </form>
+</a>
+
+<a href="${pageContext.request.contextPath}/project">
+    <form method="GET"
+          action="${pageContext.request.contextPath}/project">
+        <input type="submit" value=" Project page ">
     </form>
 </a>
 
