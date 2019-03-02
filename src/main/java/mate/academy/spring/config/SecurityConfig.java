@@ -29,17 +29,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        http
-                .authorizeRequests()
-                .antMatchers("/developer", "/developer/listDev").hasAnyAuthority("DEVELOPER", "ADMIN", "TEAM_LEAD")
-
-                .antMatchers("/developer/**").hasAnyAuthority("ADMIN", "TEAM_LEAD")
-
-                .antMatchers("/project/").hasAnyAuthority("DEVELOPER", "ADMIN", "TEAM_LEAD", "CUSTOMER")
-
-                .antMatchers("/project/**").hasAnyAuthority("ADMIN", "CUSTOMER")
-
+        http.authorizeRequests()
+                .antMatchers("/developer", "/developer/listDev")
+                .hasAnyAuthority("DEVELOPER", "ADMIN", "TEAM_LEAD")
+                .antMatchers("/developer/**")
+                .hasAnyAuthority("ADMIN", "TEAM_LEAD")
+                .antMatchers("/project/")
+                .hasAnyAuthority("DEVELOPER", "ADMIN", "TEAM_LEAD", "CUSTOMER")
+                .antMatchers("/project/**")
+                .hasAnyAuthority("ADMIN", "CUSTOMER")
                 .antMatchers("/resources/**", "/registration/**")
                 .permitAll().anyRequest().authenticated()
                 .and()

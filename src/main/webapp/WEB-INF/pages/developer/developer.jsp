@@ -11,6 +11,7 @@
 <head>
     <link type="text/css" rel="stylesheet" media="screen"
           href="${pageContext.request.contextPath}/resources/styles/loginStyle.css"/>
+
     <title>Developer</title>
 </head>
 <button type="button" name="back" onclick="history.back()">back</button>
@@ -19,10 +20,6 @@
     <body>
 
     <h1>Developer page</h1>
-<%--It was wrong!!!--%>
-    <%--<a href="${pageContext.request.contextPath}/developer/listDev/">--%>
-    <%--<input type="submit" value="List developer">--%>
-    <%--</a>--%>
 
         <a href="${pageContext.request.contextPath}/developer/listDev/">
             <form method="GET"
